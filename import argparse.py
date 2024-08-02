@@ -1,5 +1,6 @@
 import argparse
 import logging
+import time
 
 import pyqtgraph as pg
 from brainflow.board_shim import BoardShim, BrainFlowInputParams, BoardIds
@@ -103,6 +104,8 @@ def main():
     '''
     try:
         board_shim.prepare_session()
+        board_shim.config_board(b"x1010010Xx2010010Xx3010010Xx4010010Xx5010010Xx6010010Xx7010010Xx8010010X")
+        time.sleep(2)
         board_shim.start_stream()
         Graph(board_shim)
     except BaseException:
